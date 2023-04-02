@@ -87,6 +87,7 @@ def load_data(city, month, day):
 
     # Display data in batches of 5 rows
     while display.lower() == 'yes':
+        pd.set_option(“display.max_columns”,200)
         print(df.iloc[start_loc:start_loc+5])
         start_loc += 5
         display = input("Do you wish to continue?: ").lower()
