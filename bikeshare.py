@@ -1,6 +1,7 @@
 import time
 import pandas as pd
 import numpy as np
+from tabulate import tabulate
 
 CITY_DATA = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
@@ -82,15 +83,12 @@ def load_data(city, month, day):
         df = df[df['day_of_week'] == day.title()]
 
     # Ask the user if they want to see 5 rows of raw data at a time
-    display = input('\nWould you like to view 5 rows of individual trip data? Enter yes or no.\n')
-    start_loc = 0
-
-    # Display data in batches of 5 rows
-    while display.lower() == 'yes':
-        pd.set_option(“display.max_columns”,200)
-        print(df.iloc[start_loc:start_loc+5])
-        start_loc += 5
-        display = input("Do you wish to continue?: ").lower()
+    while True:
+    display_data = input('\nWould you like to see 5 lines of raw data? Enter yes or no.\n')
+    if display_data.lower() != 'yes':
+        break
+    print(tabulate(df_default.iloc[np.arange(0+i,5+i)], headers ="keys"))
+    i+=5
 
     return df
 
