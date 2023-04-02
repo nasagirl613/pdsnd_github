@@ -4,7 +4,7 @@
 04/02/2023
 
 ### Project Title
-Bikeshare Project
+US Bikeshare Data Project
 
 ### Description
 Allows a user to explore statistical data on US Bikeshare data from Chicago, New York City, and Washington.
